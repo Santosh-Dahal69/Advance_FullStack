@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,48 +5,43 @@
 </head>
 <body>
 
-    <h1>Create Student</h1>
+<h1>Create Student</h1>
 
-    @if ($errors->any())
-        <div style="color: red;">
-            <strong>Please fix these errors:</strong>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@if($errors->any())
+    <div>
+        <strong>Please fix the following errors:</strong>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-    <form action="/student" method="POST">
-        @csrf
+<form action="{{ route('students.store') }}" method="POST">
+    @csrf
 
-        <label>Name:</label><br>
-        <input type="text" name="name" value="{{ old('name') }}" required>
-        <br><br>
+    <label>Name:</label><br>
+    <input type="text" name="name" value="{{ old('name') }}"><br><br>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" value="{{ old('email') }}" required>
-        <br><br>
+    <label>Email:</label><br>
+    <input type="email" name="email" value="{{ old('email') }}"><br><br>
 
-        <label>Phone:</label><br>
-        <input type="text" name="phone" value="{{ old('phone') }}" required>
-        <br><br>
+    <label>Phone:</label><br>
+    <input type="text" name="phone" value="{{ old('phone') }}"><br><br>
 
-        <label>Address:</label><br>
-        <textarea name="address">{{ old('address') }}</textarea>
-        <br><br>
+    <label>Address:</label><br>
+    <input type="text" name="address" value="{{ old('address') }}"><br><br>
 
-        <label>Date of Birth:</label><br>
-        <input type="date" name="date_of_birth" value="{{ old('date_of_birth') }}">
-        <br><br>
+    <label>Date of Birth:</label><br>
+    <input type="date" name="date_of_birth" value="{{ old('date_of_birth') }}"><br><br>
 
-        <button type="submit">Create Student</button>
-    </form>
+    <button type="submit">Create Student</button>
+</form>
 
-    <br>
-    <a href="/students">Back to Students</a>
+<br>
+
+<a href="{{ route('students.index') }}">Back to Students</a>
 
 </body>
 </html>
-
