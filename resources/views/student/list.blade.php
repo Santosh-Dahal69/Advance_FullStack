@@ -7,7 +7,7 @@
 
 <h1>Students</h1>
 
-<a href="/student/create">Create Student</a>
+<a href="{{ route('students.create') }}">Create Student</a>
 
 <br><br>
 
